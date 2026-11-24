@@ -14,6 +14,9 @@ const chars = [...LINE].length;
 if (chars < 1 || chars > 200) {
   throw new Error(`entry line is ${chars} characters, must be 1-200`);
 }
+if (LINE !== LINE.trim()) {
+  throw new Error("entry line must not start or end with white space");
+}
 if (LINE.includes("\n") || LINE.includes("\r")) {
   throw new Error("entry line must be a single line");
 }
